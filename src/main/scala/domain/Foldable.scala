@@ -1,6 +1,6 @@
 package domain
 
-trait Foldable[F[_]]{ //아 망할 폴더블 왜 인스턴스를 못만드냐;;
+trait Foldable[F[_]]{
 
   import Monoid._
 
