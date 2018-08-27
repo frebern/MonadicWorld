@@ -32,10 +32,14 @@ object TestMain {
     val sumBox = Box.monoid.op(boxBox, boxBoxBox)
 
     println(sumBox)
-//
-//    import domain.Box._
-//    println(fold(Box(Box(), Box(Node("A"), Node("B")), Box(Box(Node("C")), Box(), Node("D")))))
-//
+
+    val foldBox = Box.foldable.fold(sumBox)(Box.monoid)
+
+    println(foldBox)
+
+    val flattenBox = Box.monad.flatMap(sumBox)(identity)
+
+    println(flattenBox)
 
   }
 }
