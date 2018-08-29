@@ -41,5 +41,11 @@ object TestMain {
 
     println(flattenBox)
 
+    val boxes = Group(Box(Node("0")),Box(Node("1"), Box(), Node("2")),Box())
+
+    val foldGroup = Group.foldable.fold(boxes)
+
+    println(foldGroup)
+
   }
 }

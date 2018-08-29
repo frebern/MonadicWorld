@@ -100,7 +100,7 @@ object Group {
   def foldable = new Foldable[Group] {
     override def foldMap[A, B](fa: Group[A])(f: A => B)(implicit mb: Monoid[B]): B =
       fa match {
-        case ItemsInGroup(items @ _*) => items.foldLeft(mb.zero)((acc, i) => mb.op(f(i), acc))
+        case ItemsInGroup(items @ _*) => items.foldLeft(mb.zero)((acc, i) => mb.op(acc, f(i)))
         case EmptyGroup => mb.zero
       }
   }
